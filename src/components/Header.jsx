@@ -10,8 +10,8 @@ function Header() {
         border-b border-n-6 
         bg-n-8/90 backdrop-blur-sm
         lg:bg-n-8/90  --- lg:backdrop-blur-sm
-        `}>
-    
+        `}
+    >
       <div className="flex items-center px-5 lg:px-7.5 max-lg:py-4 xl:px-10">
         <a className="block w-[12rem] xl:mr-8" href="#hero">
           <img src={brainwave} width={190} height={40} alt="BrainWave" />
@@ -35,7 +35,13 @@ function Header() {
           </div>
         </nav>
 
-        {/* want add the bottom here  */}
+        <a
+          href="#signup"
+          className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n1 lg:block"
+        >
+          Sign Up
+        </a>
+        
       </div>
     </div>
   );
