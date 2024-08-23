@@ -1,14 +1,17 @@
-// import {
-//   createBrowserRouter,
-//   Route,
-//   createRoutesfromElements,
-//   RouterProvider,
-// } from "react-router-dom";
-// const router = createBrowserRouter(
-//   createRoutesfromElements(<Route index element={<h1>My APP</h1>} />)
-// );
-// const App = () => {
-//   return <RouterProvider router={router} />;
-// };
+import Header from "./components/Header";
+import ButtonGradient from "./assets/svg/ButtonGradient";
+import Button from "./components/Button";
 
-// export default App;
+const App = () => {
+  return (
+    <>
+      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+        <Header />
+        {/* <Button className="mt-10" href="#login">click me</Button> */}
+      </div>
+      <ButtonGradient />
+    </>
+  );
+};
+
+export default App;
