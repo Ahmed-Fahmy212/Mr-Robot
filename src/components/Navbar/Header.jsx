@@ -1,5 +1,6 @@
-import { brainwave } from "../assets";
-import { navigation } from "../constants";
+import { brainwave } from "../../assets";
+import { navigation } from "../../constants";
+import Button from "../Button";
 // import useState from 'react'
 function Header() {
   //   const [openNavigation] = useState(false);
@@ -41,7 +42,9 @@ function Header() {
         >
           Sign Up
         </a>
-        
+        <Button className="hidden lg:flex" href="#login">
+        Sign in
+      </Button>
       </div>
     </div>
   );
