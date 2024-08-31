@@ -1,52 +1,94 @@
-import { brainwave } from "../../assets";
-import { navigation } from "../../constants";
-import Button from "../Button";
-// import useState from 'react'
+import { navbarMenu } from "../../exData/data"; 
+import ResponsiveMenu from "./ResponsiveMenu"; 
+import { FiSearch } from "react-icons/fi"; 
+import { RiShoppingCartLine } from "react-icons/ri"; 
+import { LiaStrava } from "react-icons/lia"; 
+import { MdMenu } from "react-icons/md"; 
+import { useState } from "react";
+
 function Header() {
-  //   const [openNavigation] = useState(false);
+  const [open, setOpen] = useState(false);
+// 1270 only
+  return ( 
+    <>
+      <nav>
+        {/*  header section, including logo, menu, search bar, and icons */}
+        <div
+          className="relative container w-full left-0 top-0 flex justify-between items-center
+                     md:py-8 md:mx-auto md:px-8
+                     py-4 px-2
+                     border-b-2 border-gray"
 
-  return (
-    <div
-      className={`fixed top-0 left-0 w-full z-50 
-        border-b border-n-6 
-        bg-n-8/90 backdrop-blur-sm
-        lg:bg-n-8/90  --- lg:backdrop-blur-sm
-        `}
-    >
-      <div className="flex items-center px-5 lg:px-7.5 max-lg:py-4 xl:px-10">
-        <a className="block w-[12rem] xl:mr-8" href="#hero">
-          <img src={brainwave} width={190} height={40} alt="BrainWave" />
-        </a>
-
-        {/* /* ----------------------------- why this fixed ----------------------------- */}
-        <nav className=" fixed top[5-rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent">
-          {/* -------------------------------- mid words ------------------------------- */}
-          <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
-            {navigation.map((elem) => (
-              <a
-                key={elem.id}
-                href={elem.url}
-                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
-                  elem.onlyMobile ? "lg:hidden" : ""
-                } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold `}
-              >
-                {elem.title}
-              </a>
-            ))}
-          </div>
-        </nav>
-
-        <a
-          href="#signup"
-          className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n1 lg:block"
         >
-          Sign Up
-        </a>
-        <Button className="hidden lg:flex" href="#login">
-        Sign in
-      </Button>
-      </div>
-    </div>
+          {/* -------------------------- Logo Section -------------------------- */}
+          <div className="text-md md:text-2xl flex items-center gap-2 font-bold uppercase">
+            {/* Logo Icon with dynamic size based on screen width */}
+            <LiaStrava className="text-[40px] md:text-[70px]" />
+            <p>Lrx |</p>
+            <p className="text-c1">Gym</p>
+          </div>
+
+          {/* -------------------------- Menu Section -------------------------- */}
+          <div className="hidden lg:block">
+            <ul className="flex items-center justify-center gap-6">
+              {navbarMenu.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <a
+                      href={item.url}
+                      className="inline-block py-1 px-3 hover:text-c1 font-semibold transition-colors duration-300"
+                    >
+                      {item.title} 
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* -------------------------- Search Section -------------------------- */}
+          <div className="hidden md:block group relative lg:w-[250px]">
+            <input
+              type="text"
+              placeholder="search"
+              className=" 
+                        md:w-[200px] 
+                        lg:group-hover:w-[250px]
+                        transition-all duration-300 rounded-full border border-gray-300 px-9 py-2
+                        focus:outline-none focus:border-1 focus:border-c1 
+                        lg:focus:w-[250px]"
+            />
+            {/* Search icon */}
+            <FiSearch className="md:absolute md:left-3 md:top-1/2 md:-translate-y-1/2 md:text-gray-500" />
+          </div>
+
+          {/* -------------------------- Icons Section -------------------------- */}
+          <div className="flex gap-2 items-center">
+            {/* Shopping cart icon */}
+            <button className="hidden md:block text-xl md:text-2xl hover:bg-c1 hover:text-white rounded-full p-2 duration-300">
+              <RiShoppingCartLine />
+            </button>
+
+            {/* Login button */}
+            <button
+              className="hidden md:block hover:bg-c1 hover:text-white duration-300 
+                         rounded-md border border-c1 px-6 py-2 font-semibold"
+            >
+              Login
+            </button>
+          </div>
+
+          {/* -------------------------- Mobile Menu Icon -------------------------- */}
+          <div className="md:hidden block" onClick={() => setOpen(!open)}>
+            {/* Menu icon for mobile view */}
+            <MdMenu className="text-4xl" />
+          </div>
+        </div>
+      </nav>
+
+      {/* Rendering ResponsiveMenu component for mobile view */}
+      <ResponsiveMenu open={open} />
+    </>
   );
 }
 
