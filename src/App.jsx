@@ -1,15 +1,22 @@
 import Header from "./components/Navbar/Header";
-import ButtonGradient from "./assets/svg/ButtonGradient";
-import Button from "./components/Button";
-
+import Hero from "./components/Hero/Hero";
 const App = () => {
   return (
     <>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Header />
-        {/* <Button className="mt-10" href="#login">click me</Button> */}
-      </div>
-      <ButtonGradient />
+      <div className="overflow-x-hidden">
+      {/* <div
+      style={{
+        background: 'linear-gradient(to right, rgba(3, 105, 161, .18) 50%, white 50%)',
+        height: '80vh',
+        width: '100%',
+      }}
+    > */}
+
+        <Header style={{background: 'linear-gradient(to right, rgba(3, 105, 161, .18) 50%, white 50%)',height: '100%',
+        width: '100%',}}/>
+        <Hero />
+    </div>
+      {/* </div> */}
     </>
   );
 };
