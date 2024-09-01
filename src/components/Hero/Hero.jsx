@@ -24,7 +24,7 @@ const Hero = () => {
           {/* Buttons section */}
           <div className="flex justify-center gap-8 md:justify-start">
             {/* Subscribe button */}
-            <button className="btn-outline">Subscribe</button>
+            <button className="btn-outline ">Subscribe</button>
             
             {/* Live demo*/}
             <button className="flex justify-center items-center gap-2">
